@@ -1,0 +1,7 @@
+.git/
+.env*
+.gitignore
+README.md
+docker-compose.yml
+client/
+!client/dist/

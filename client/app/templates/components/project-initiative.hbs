@@ -1,0 +1,17 @@
+<div role="button" class="c-list-full_item__container"{{action "loadInitiative" initiative.id}}>
+  <div class="c-list-full_item_name--secondary" id={{concat initiativeName " statistics"}}>{{initiativeName}}</div>
+  {{ember-progress-bar
+    progress=1
+    setProgress=initiativeProgress
+    options=(hash
+      trailWidth= 10
+      strokeWidth=8
+      color=BLACK
+      trailColor=trailColor
+      from=from
+      to=to
+      step=step
+      svgStyle=svgStyle
+    )
+  }}
+</div>

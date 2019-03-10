@@ -1,0 +1,12 @@
+/**
+* Sourced from repo that rips the grid systems out of Bootstrap 4
+* See: https://github.com/m-spyratos/bootstrap-4-grid
+
+* See Bootstrap 4 grid docs: https://getbootstrap.com/docs/4.1/layout/grid/
+*/
+@import 'bootstrap-4-grid/scss/grid';
+
+.container-fluid {
+  padding-left: 0;
+  padding-right: 0;
+}

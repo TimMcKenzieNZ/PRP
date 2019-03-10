@@ -1,0 +1,20 @@
+
+<div class="c-list-item{{if isSelected " selected" ""}}" {{action "click"}} role="button">
+  <div class="c-list-item__name" id={{initiativeName}}>
+    Initiative: <strong>{{initiativeName}}</strong>
+  </div>
+  {{ember-progress-bar
+    progress=1
+    setProgress=initiativeProgress
+    options=(hash
+      trailWidth=10
+      strokeWidth=8
+      color=BLACK
+      trailColor=trailColor
+      from=from
+      to=to
+      step=step
+      svgStyle=svgStyle
+    )
+  }}
+</div>

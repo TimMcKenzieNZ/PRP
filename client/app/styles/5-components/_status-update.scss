@@ -1,0 +1,31 @@
+.c-status-update {
+  margin-top: 10px;
+  font-size: 1.6rem;
+  color: $primary--200;
+}
+
+.c-status-update__image {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  vertical-align: middle;
+}
+
+.c-status-update__text {
+  margin-left: 10px;
+}
+
+.c-status-update__text--emphasis {
+  font-style: italic;
+  color: $neutral--700;
+}
+
+.c-status-update__link {
+  margin-top: 10px;
+  color: $primary--500;
+}
+
+.c-status-update__email {
+  color: $primary--500;
+  text-decoration: none;
+}

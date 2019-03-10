@@ -1,0 +1,7 @@
+.c-text-input {
+  @include form-input;
+}
+
+.c-text-input--disabled {
+  @include disabled-form-input;
+}

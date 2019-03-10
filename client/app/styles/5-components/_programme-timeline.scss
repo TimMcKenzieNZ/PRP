@@ -1,0 +1,43 @@
+.c-programme-timeline {
+  margin-top: 20px;
+}
+
+.c-programme-timeline__past-line {
+  stroke: $primary--500;
+}
+
+.c-programme-timeline__future-line {
+  stroke: $neutral--300;
+}
+
+.c-programme-timeline__future-line-arrow {
+  fill: $neutral--300;
+}
+
+.c-programme-timeline__axis-label {
+  font-size: 1.2rem;
+  fill: $neutral--500;
+}
+
+.c-programme-timeline__today-dot {
+  fill: $primary--500;
+}
+
+.c-programme-timeline__milestone-dot {
+  fill: $primary--300;
+}
+
+.c-programme-timeline__milestone-line {
+  stroke: $primary--300;
+}
+
+.c-programme-timeline__milestone-text {
+  font-weight: $weight--bold;
+  font-size: 1.3rem;
+}
+
+.c-programme-timeline__milestone-text-box {
+  fill: none;
+  stroke: $primary--300;
+  stroke-width: 1;
+}

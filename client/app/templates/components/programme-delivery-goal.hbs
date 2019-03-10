@@ -1,0 +1,7 @@
+<div class="c-dashboard-goals__box{{if isSelected "--highlight" ""}}" {{action "click"}} role="button" id={{goal.id}}>
+  <object class="c-dashboard-goals__image" data={{goal.image}} type="image/jpg">
+    <img src={{imageLink}} class="rounded-circle" alt={{goal.name}}>
+  </object>
+
+  <div class="c-dashboard-goals__name">{{goal.name}}</div>
+</div>

@@ -1,0 +1,31 @@
+/**
+*  ================
+*   CONTAINERS
+*  ================
+*
+*  Responsive containers used to create horizontally centered, consistently
+*  sized max-width wrapper elements.
+*
+*  ### ARGUMENTS ###
+*  $max-width: maximum width container can grow to on larger screens
+*  $gutter: amount of padding left and right of container on smaller screeens
+*
+*  ### USAGE: ###
+*  .page-content {
+*    @include container();
+*  }
+*
+*  .modal {
+*    @include container(600px, 20px);
+*  }
+*
+*/
+
+@mixin container($gutterWidth: $container--gutter, $max-width: $container--max-width) {
+  box-sizing: content-box;
+  max-width: $max-width;
+  padding-left: $gutterWidth;
+  padding-right: $gutterWidth;
+  margin-left: auto;
+  margin-right: auto;
+}

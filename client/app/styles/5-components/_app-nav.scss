@@ -1,0 +1,100 @@
+.c-app-nav {
+  background-color: $app-nav--bg;
+  box-shadow: 0 0 70px #00000008;
+}
+
+.c-app-nav__content {
+  @include container;
+}
+
+.c-app-nav__logo {
+  font-size: 2rem;
+  line-height: 60px;
+  font-weight: $weight--bold;
+  color: $app-nav--logo-text-color;
+  text-decoration: none;
+  display: inline-block;
+  margin-right: 20px;
+}
+
+.c-app-nav__programme {
+  font-size: 2rem;
+  line-height: 60px;
+  font-weight: $weight--regular;
+  color: $app-nav--programme-text-color;
+  text-decoration: none;
+  display: inline-block;
+  white-space: nowrap;
+  
+  @include phone-only {
+    display: none;
+  }
+
+}
+
+.c-app-nav__perspective-container{
+  display: flex;
+  float: right;
+  height: 60px;
+  align-items: center;
+  justify-content: space-between;
+  width: 170px;
+}
+
+.c-app-nav__perspective{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100%;
+  
+  &.active svg{
+    fill:$color--white;
+    z-index: 1;
+  }
+  
+  svg{
+    fill: $primary--200;
+    height: 25px;
+    width:25px;
+  }
+  
+  &:after{
+    border: 1px solid $color--primary;
+    opacity: 0;
+    width: 30px;
+    height: 30px;
+    content: "";
+    position: absolute;
+    border-radius: 100%; 
+    transition: .15s ease-in-out; 
+  }
+  
+  &:hover::after{
+    opacity: 1;
+    width: 40px;
+    height: 40px;
+    transition: .15s ease-in-out;  
+  }
+  
+  &.active:after{
+      opacity: 1;
+      background:$color--primary;
+      width: 40px;
+      height: 40px;
+    }
+
+}
+
+.c-app-nav-default {
+  padding: 20px 0;
+  background-color: $app-nav-default--bg;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+.c-app-nav-default__logo {
+  font-size: 2rem;
+  line-height: 1;
+  font-weight: $weight--bold;
+  color: $app-nav-default--logo-text-color;
+  text-decoration: none;
+}

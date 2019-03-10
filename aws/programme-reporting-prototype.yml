@@ -1,0 +1,216 @@
+AWSTemplateFormatVersion: 2010-09-09
+
+Description: >
+  This template deploys the Programme reporting prototype ECS service and task definition
+  from images published in Amazon EC2 Container Registry (Amazon ECR).
+Metadata:
+
+  AWS::CloudFormation::Interface:
+    ParameterGroups: #
+      - Label:
+          default: Environment # which we will deploy to (e.g. production, UAT)
+        Parameters:
+          - EnvironmentName
+      - Label:
+          default: Database settings # The real world database values
+        Parameters:
+          - DBName
+          - DBUsername
+          - DBPassword
+    ParameterLabels: # Names on the cloud formation form for human reading
+      EnvironmentName:
+        default: Environment name
+      DBName:
+        default: Database Name
+      DBUsername:
+        default: Database Username
+      DBPassword:
+        default: Database Password
+
+Parameters: # Defining the parameter types
+
+  EnvironmentName:
+    Description: Environment name that will be prefixed to resource names
+    AllowedValues:
+      - development
+      - uat
+      - production
+    Type: String
+  # Environment
+  DBName:
+    Description: Name of prp database
+    Default: prp
+    Type: String
+
+  DBUsername:
+    Description: prp database user
+    Default: PG_user
+    MinLength: 1
+    Type: String
+
+  DBPassword:
+    Description: Specify a string that defines the password for the database user. Password must be at least eight characters long
+    NoEcho: true
+    MinLength: 8
+    MaxLength: 128
+    Type: String
+
+  DesiredCount:
+    Description: Number of tasks to run across the cluster
+    MinValue: 0
+    Type: Number
+    Default: 1
+
+  Image:
+    Description: Prp docker image tag
+    Type: String
+
+Conditions:
+
+  Production: !Equals [!Ref EnvironmentName, production]
+
+
+Resources:
+
+
+
+
+  Service:
+    Type: AWS::ECS::Service
+    DependsOn: ListenerRule
+    Properties:
+      TaskDefinition: !Ref TaskDefinition
+      Cluster:
+        Fn::ImportValue: !Sub ${EnvironmentName}-ECSCluster
+      ServiceName: !Sub ${EnvironmentName}-programme-reporting-prototype-service #e.g. UAT-prp
+      DesiredCount: !Ref DesiredCount
+      DeploymentConfiguration:
+        MinimumHealthyPercent: !If [Production, 50, 0] # % of total containers we can drop (50%)
+        MaximumPercent: !If [Production, 200, 100] # We can double the amount of containers (200%)
+      PlacementStrategies:
+        - Type: spread
+          Field: attribute:ecs.availability-zone
+        - Type: spread
+          Field: instanceId
+      LoadBalancers:
+        - TargetGroupArn: !Ref TargetGroup
+          ContainerPort: 80
+          ContainerName: programme-reporting-prototype
+      Role: !Ref ServiceRole
+
+  TaskDefinition:
+    Type: AWS::ECS::TaskDefinition
+    Properties:
+      Family: !Sub  ${EnvironmentName}-programme-reporting-prototype-task
+      ## Temporarily commented out as the repo contains the media files.
+      #Volumes:
+      #  - Host:
+      #      SourcePath: /efs/programme-reporting-prototype/media
+      #    Name: media
+      ContainerDefinitions:
+        - Name:  programme-reporting-prototype
+          Essential: true
+          Image: !Sub ${AWS::AccountId}.dkr.ecr.${AWS::Region}.amazonaws.com/programme-reporting-prototype:${Image}
+          Cpu: 128
+          Memory: 512 # max memeory before container is killed
+          MemoryReservation: 128
+          PortMappings:
+            - ContainerPort: 80
+          LogConfiguration:
+            LogDriver: awslogs
+            Options:
+              awslogs-group: !Ref EnvironmentName
+              awslogs-region: !Ref AWS::Region
+              awslogs-stream-prefix: programme-reporting-prototype
+          ## Temporarily commented out as the repo contains the media files.
+          #MountPoints:
+          #  - SourceVolume: media
+          #    ContainerPath: /src/server/media
+          Environment:
+            - Name: PG_HOST
+              Value:
+                Fn::ImportValue: !Sub ${EnvironmentName}-RDSDBAddress2
+            - Name: PG_PORT
+              Value:
+                Fn::ImportValue: !Sub ${EnvironmentName}-RDSDBPort2
+            - Name: PG_DB
+              Value: !Ref DBName
+            - Name: PG_USER
+              Value: !Ref DBUsername
+            - Name: PG_PASS
+              Value: !Ref DBPassword
+            - Name: APP_DOMAINS
+              Value: prp.msapp.co.nz,localhost
+            - Name: DEBUG
+              Value: false
+            - Name: EC2_METADATA_LOCAL_IP
+              Value: true
+
+  TargetGroup:
+    Type: AWS::ElasticLoadBalancingV2::TargetGroup
+    Properties:
+      VpcId:
+        Fn::ImportValue: !Sub ${EnvironmentName}-VPC
+      Protocol: HTTP
+      Port: 80
+      HealthCheckProtocol: HTTP
+      HealthCheckPath: /status/ping
+      HealthCheckTimeoutSeconds: 5
+      HealthCheckIntervalSeconds: 30
+      UnhealthyThresholdCount: 2
+      HealthyThresholdCount: 5
+      Matcher:
+        HttpCode: 200-299
+      TargetGroupAttributes:
+        - Key: deregistration_delay.timeout_seconds
+          Value: 60
+
+  RedirectRule:
+    Type: AWS::ElasticLoadBalancingV2::ListenerRule
+    Properties:
+      ListenerArn:
+        Fn::ImportValue: !Sub ${EnvironmentName}-ALBListener
+      Priority: 5
+      Conditions:
+        - Field: host-header
+          Values:
+            -  prp.msapp.co.nz
+      Actions:
+        - Type: redirect
+          RedirectConfig:
+            Protocol: HTTPS
+            Port: 443
+            StatusCode: HTTP_301
+
+  ListenerRule:
+    Type: AWS::ElasticLoadBalancingV2::ListenerRule
+    Properties:
+      ListenerArn:
+        Fn::ImportValue: !Sub ${EnvironmentName}-ALBSSLListener
+      Priority: 5
+      Conditions:
+        - Field: host-header
+          Values: 
+            - prp.msapp.co.nz
+      Actions:
+        - Type: forward
+          TargetGroupArn: !Ref TargetGroup
+
+  # This IAM Role grants the service access to register/unregister with the
+  # Application Load Balancer (ALB). It is based on the default documented here:
+  # http://docs.aws.amazon.com/AmazonECS/latest/developerguide/service_IAM_role.html
+  ServiceRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: !Sub ${AWS::StackName}-ecs-service
+      AssumeRolePolicyDocument:
+        Version: 2008-10-17
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service:
+                - ecs.amazonaws.com
+            Action:
+              - sts:AssumeRole
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/service-role/AmazonEC2ContainerServiceRole

@@ -1,0 +1,11 @@
+<h2 class="c-dashboard-heading">Perspectives</h2>
+<div class="c-dashboard-perspectives__content">
+    {{#each perspectives as |perspective|}}
+      {{#link-to perspective.link class="c-dashboard-perspectives__box"}}
+        <div class="c-dashboard-perspectives__image">
+          <svg><use xlink:href="/assets/icons/icons.svg#icon-{{perspective.icon}}"></use></svg>
+        </div>
+        <div class="c-dashboard-perspectives__name">{{perspective.name}}</div>
+      {{/link-to}}
+    {{/each}}
+</div>

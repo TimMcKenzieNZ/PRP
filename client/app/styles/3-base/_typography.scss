@@ -1,0 +1,91 @@
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: $default--font-size;
+  line-height: $default--line-height;
+  color: $default--text-color;
+  font-family: $default--font-family;
+  font-weight: $default--weight;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: inherit;
+  text-decoration-skip: ink;
+}
+
+p {
+  margin: 10px 0 20px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: $weight--bold;
+  margin: 30px 0 10px 0;
+}
+
+h1 {
+  font-size: $h1--font-size;
+
+  @include phone-only {
+    font-size: $h1--mobile-font-size;
+  }
+}
+
+h2 {
+  font-size: $h2--font-size;
+
+  @include phone-only {
+    font-size: $h2--mobile-font-size;
+  }
+}
+
+
+h3 {
+  font-size: $h3--font-size;
+
+  @include phone-only {
+    font-size: $h3--mobile-font-size;
+  }
+}
+
+
+h4 {
+  font-size: $h4--font-size;
+
+  @include phone-only {
+    font-size: $h4--mobile-font-size;
+  }
+}
+
+
+h5 {
+  font-size: $h5--font-size;
+
+  @include phone-only {
+    font-size: $h5--mobile-font-size;
+  }
+}
+
+h6 {
+  font-size: $h6--font-size;
+
+  @include phone-only {
+    font-size: $h6--mobile-font-size;
+  }
+}
+
+.c-page-heading {
+  color: $color--primary-text;
+  font-size: 4.5rem;
+  font-weight: $weight--light;
+  margin-bottom: 20px;
+  margin-top: 15px;
+}

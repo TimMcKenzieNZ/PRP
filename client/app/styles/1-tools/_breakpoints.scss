@@ -1,0 +1,42 @@
+/**
+*  ================
+*   BREAKPOINTS
+*  ================
+*
+*  Declarative mixins to keep breakpoints consistent and easy to use.
+*
+*  ### USAGE: ###
+*  .component {
+*    display: inline-block;
+*
+*    @include phone-only {
+*      display: none;
+*    }
+*  }
+*
+*/
+
+@mixin phone-only {
+  @media (max-width: 599px) { @content; }
+}
+@mixin tablet-portrait-up {
+  @media (min-width: 600px) { @content; }
+}
+@mixin ipad-portrait-up {
+  @media (min-width: 768px) { @content; }
+}
+@mixin tablet-landscape-down {
+  @media (max-width: 899px) { @content; }
+}
+@mixin tablet-landscape-up {
+  @media (min-width: 900px) { @content; }
+}
+@mixin small-desktop-up {
+  @media (min-width: 1260px) { @content; }
+}
+@mixin medium-desktop-up {
+  @media (min-width: 1440px) { @content; }
+}
+@mixin big-desktop-up {
+  @media (min-width: 1800px) { @content; }
+}

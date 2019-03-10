@@ -1,0 +1,92 @@
+/***************************************************
+* Palette - default colours/shades/tints
+***************************************************/
+
+/**
+* Primary colour shades
+* @TODO Modify all colours. Only $primary--500,300,100 done.
+*/
+$primary--900: #007651;
+$primary--800: #008A5E;
+$primary--700: #009E6C;
+$primary--600: #00B17A;
+$primary--500: #D10102;
+$primary--400: #40D5A6;
+$primary--300: #FFA0A0;
+$primary--200: #585858;
+$primary--100: #F3F7F9;
+
+
+/**
+* Black/grey shades
+*/
+$neutral--900: #292929;
+$neutral--800: #414141;
+$neutral--700: #616161;
+$neutral--600: #767676;
+$neutral--500: #959595;
+$neutral--400: #ABABAB;
+$neutral--300: #BFBFBF;
+$neutral--200: #EAE9EE;
+$neutral--100: #F5F8FD;
+
+
+/**
+* White
+*/
+$color--primary: $primary--500;
+$color--white: #fff;
+
+
+
+/***************************************************
+* App colour settings
+***************************************************/
+
+/**
+* Base
+*/
+$page-bg: $primary--100;
+$content-bg: $primary--100;
+
+
+/**
+* Typography
+*/
+$color--body-text: $neutral--900;
+$color--primary-text: $primary--500;
+
+
+/**
+* Components
+*/
+
+// App nav
+$app-nav--bg: $color--white;
+$app-nav--logo-text-color: $color--primary-text;
+$app-nav--programme-text-color: $color--body-text;
+$app-nav-default--bg: $primary--500;
+$app-nav-default--logo-text-color: $color--white;
+
+// Skip to content link
+$skip-to-content-link--bg: $color--white;
+
+// Primary action
+$primary-action--bg: $color--primary;
+$primary-action--hover-bg: $primary--600;
+$primary-action--text: $color--white;
+
+// Secondary action
+$secondary-action--text: $color--primary;
+$secondary-action--hover-text: $primary--600;
+
+// Form input
+$form-input--bg: $color--white;
+$form-input--border-color: $neutral--300;
+$form-input--hover-border-color: $color--primary;
+$form-input--disabled-bg: $neutral--100;
+$form-input--disabled-border-color: $neutral--200;
+$form-input--disabled-text: $neutral--400;
+
+// Checkable fields
+$checkable-field--disabled-text: $neutral--400;

@@ -1,0 +1,105 @@
+<p class="card-text">
+  {{#if (eq risk.riskSeverity "Minor")}}
+    {{#if (eq risk.flagged true)}}
+      <h6>
+        <p>
+          <i 
+            class= "fas fa-exclamation-triangle minor triggered" 
+            role="button"
+            {{action "click"}} 
+          >
+          </i>
+          {{risk.name}}
+        </p>
+      </h6>
+      {{#if hasSelectedRisk}}
+        {{risk-description risk=risk}}
+        <br>
+      {{/if}}
+    {{else}}
+      <h6>
+        <p>
+          <i
+            class= "fas fa-exclamation-triangle minor"
+            role="button"
+            {{action "click"}}
+          >
+          </i> 
+          {{risk.name}}
+        </p>
+      </h6>
+      {{#if hasSelectedRisk}}
+        {{risk-description risk=risk}}
+        <br>
+      {{/if}}
+    {{/if}}
+  {{else if (eq risk.riskSeverity "Moderate")}}
+    {{#if (eq risk.flagged true)}}
+      <h6>
+        <p>
+          <i 
+            class= "fas fa-exclamation-triangle moderate triggered"
+            role="button"
+            {{action "click"}} 
+          >
+          </i>
+          {{risk.name}}
+        </p>
+      </h6>
+      {{#if hasSelectedRisk}}
+        {{risk-description risk=risk}}
+        <br>
+      {{/if}}
+    {{else}}
+      <h6>
+        <p>
+          <i 
+            class= "fas fa-exclamation-triangle moderate"
+            role="button"
+            {{action "click"}}
+          >
+          </i> 
+          {{risk.name}}
+        </p>
+      </h6>
+      {{#if hasSelectedRisk}}
+        {{risk-description risk=risk}}
+        <br>
+      {{/if}}
+    {{/if}}
+  {{else}}
+    {{#if (eq risk.flagged true)}}
+      <h6>
+        <p>
+          <i 
+            class= "fas fa-exclamation-triangle major triggered"
+            role="button"
+            {{action "click"}}
+          >
+          </i> 
+          {{risk.name}}
+        </p>
+      </h6>
+      {{#if hasSelectedRisk}}
+        {{risk-description risk=risk}}
+        <br>
+      {{/if}}
+    {{else}}
+      <h6>
+        <p>
+          <i 
+            class= "fas fa-exclamation-triangle major"
+            role="button"
+            {{action "click"}}
+          >
+          </i> 
+          {{risk.name}}
+        </p>
+      </h6>
+      {{#if hasSelectedRisk}}
+        {{risk-description risk=risk}}
+        <br>
+      {{/if}}
+    {{/if}}
+  {{/if}}
+</p>

@@ -1,0 +1,253 @@
+[
+  {
+    "model": "programmes.riskcategory",
+    "pk": 1,
+    "fields": {
+      "likelihood": 1,
+      "impact": 1,
+      "risk_category": "Minor"
+
+    }
+  },
+  {
+    "model": "programmes.riskcategory",
+    "pk": 2,
+    "fields": {
+      "likelihood": 1,
+      "impact": 2,
+      "risk_category": "Minor"
+
+    }
+  },
+  {
+    "model": "programmes.riskcategory",
+    "pk": 3,
+    "fields": {
+      "likelihood": 1,
+      "impact": 3,
+      "risk_category": "Minor"
+
+    }
+  },
+  {
+    "model": "programmes.riskcategory",
+    "pk": 4,
+    "fields": {
+      "likelihood": 1,
+      "impact": 4,
+      "risk_category": "Moderate"
+
+    }
+  },
+  {
+    "model": "programmes.riskcategory",
+    "pk": 5,
+    "fields": {
+      "likelihood": 1,
+      "impact": 5,
+      "risk_category": "Moderate"
+
+    }
+  },
+  {
+    "model": "programmes.riskcategory",
+    "pk": 6,
+    "fields": {
+      "likelihood": 2,
+      "impact": 1,
+      "risk_category": "Minor"
+
+    }
+  },
+  {
+    "model": "programmes.riskcategory",
+    "pk": 7,
+    "fields": {
+      "likelihood": 2,
+      "impact": 2,
+      "risk_category": "Minor"
+
+    }
+  },
+  {
+    "model": "programmes.riskcategory",
+    "pk": 8,
+    "fields": {
+      "likelihood": 2,
+      "impact": 3,
+      "risk_category": "Moderate"
+
+    }
+  },
+  {
+    "model": "programmes.riskcategory",
+    "pk": 9,
+    "fields": {
+      "likelihood": 2,
+      "impact": 4,
+      "risk_category": "Moderate"
+
+    }
+  },
+  {
+    "model": "programmes.riskcategory",
+    "pk": 10,
+    "fields": {
+      "likelihood": 2,
+      "impact": 5,
+      "risk_category": "Major"
+
+    }
+  },
+  {
+    "model": "programmes.riskcategory",
+    "pk": 11,
+    "fields": {
+      "likelihood": 3,
+      "impact": 1,
+      "risk_category": "Minor"
+
+    }
+  },
+  {
+    "model": "programmes.riskcategory",
+    "pk": 12,
+    "fields": {
+      "likelihood": 3,
+      "impact": 2,
+      "risk_category": "Minor"
+
+    }
+  },
+  {
+    "model": "programmes.riskcategory",
+    "pk": 13,
+    "fields": {
+      "likelihood": 3,
+      "impact": 3,
+      "risk_category": "Moderate"
+
+    }
+  },
+  {
+    "model": "programmes.riskcategory",
+    "pk": 14,
+    "fields": {
+      "likelihood": 3,
+      "impact": 4,
+      "risk_category": "Moderate"
+
+    }
+  },
+  {
+    "model": "programmes.riskcategory",
+    "pk": 15,
+    "fields": {
+      "likelihood": 3,
+      "impact": 5,
+      "risk_category": "Major"
+
+    }
+  },
+  {
+    "model": "programmes.riskcategory",
+    "pk": 16,
+    "fields": {
+      "likelihood": 4,
+      "impact": 1,
+      "risk_category": "Minor"
+
+    }
+  },
+  {
+    "model": "programmes.riskcategory",
+    "pk": 17,
+    "fields": {
+      "likelihood": 4,
+      "impact": 2,
+      "risk_category": "Moderate"
+
+    }
+  },
+  {
+    "model": "programmes.riskcategory",
+    "pk": 18,
+    "fields": {
+      "likelihood": 4,
+      "impact": 3,
+      "risk_category": "Moderate"
+
+    }
+  },
+  {
+    "model": "programmes.riskcategory",
+    "pk": 19,
+    "fields": {
+      "likelihood": 4,
+      "impact": 4,
+      "risk_category": "Major"
+
+    }
+  },
+  {
+    "model": "programmes.riskcategory",
+    "pk": 20,
+    "fields": {
+      "likelihood": 4,
+      "impact": 5,
+      "risk_category": "Major"
+
+    }
+  },
+  {
+    "model": "programmes.riskcategory",
+    "pk": 21,
+    "fields": {
+      "likelihood": 5,
+      "impact": 1,
+      "risk_category": "Minor"
+
+    }
+  },
+  {
+    "model": "programmes.riskcategory",
+    "pk": 22,
+    "fields": {
+      "likelihood": 5,
+      "impact": 2,
+      "risk_category": "Moderate"
+
+    }
+  },
+  {
+    "model": "programmes.riskcategory",
+    "pk": 23,
+    "fields": {
+      "likelihood": 5,
+      "impact": 3,
+      "risk_category": "Moderate"
+
+    }
+  },
+  {
+    "model": "programmes.riskcategory",
+    "pk": 24,
+    "fields": {
+      "likelihood": 5,
+      "impact": 4,
+      "risk_category": "Major"
+
+    }
+  },
+  {
+    "model": "programmes.riskcategory",
+    "pk": 25,
+    "fields": {
+      "likelihood": 5,
+      "impact": 5,
+      "risk_category": "Major"
+
+    }
+  }
+
+]

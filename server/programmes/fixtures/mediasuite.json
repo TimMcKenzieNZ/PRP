@@ -1,0 +1,790 @@
+[
+  {
+      "model": "programmes.teammember",
+      "pk": 21,
+      "fields": {
+          "email": "pete@mediasuite.co.nz",
+          "image": "prp/teammembers/images/pete.png",
+          "position": "Business Analyst & Project Manager",
+          "date_joined": "2019-01-24 15:02:10.39076523",
+          "first_name": "Pete",
+          "is_active": true,
+          "is_staff": true,
+          "is_superuser": false,
+          "last_login": "2019-01-24 15:02:32.16536123",
+          "last_name": "Banks",
+          "password": "pbkdf2_sha256$120000$e8pQF2uBL4fB$H4kkAvD1dCNU6qXF7GK6et/JFj7y5Fk8zdUTHvznU5I=",
+          "username": "Pete",
+          "contact_number": 111
+      }
+  },
+  {
+      "model": "programmes.teammember",
+      "pk": 22,
+      "fields": {
+          "email": "ewen@mediasuite.co.nz",
+          "image": "prp/teammembers/images/ewen.png",
+          "position": "Full Stack Developer",
+          "date_joined": "2019-01-24 15:02:10.39076523",
+          "first_name": "Ewen",
+          "is_active": true,
+          "is_staff": true,
+          "is_superuser": false,
+          "last_login": "2019-01-24 15:02:32.16536123",
+          "last_name": "Cumming",
+          "password": "pbkdf2_sha256$120000$e8pQF2uBL4fB$H4kkAvD1dCNU6qXF7GK6et/JFj7y5Fk8zdUTHvznU5I=",
+          "username": "Ewen Cumming",
+          "contact_number": 111
+      }
+  },
+  {
+      "model": "programmes.teammember",
+      "pk": 23,
+      "fields": {
+          "email": "george@mediasuite.co.nz",
+          "image": "prp/teammembers/images/george.png",
+          "position": "Managing Director",
+          "date_joined": "2019-01-24 15:02:10.39076523",
+          "first_name": "George",
+          "is_active": true,
+          "is_staff": true,
+          "is_superuser": true,
+          "last_login": "2019-01-24 15:02:32.16536123",
+          "last_name": "Wills",
+          "password": "pbkdf2_sha256$120000$e8pQF2uBL4fB$H4kkAvD1dCNU6qXF7GK6et/JFj7y5Fk8zdUTHvznU5I=",
+          "username": "George",
+          "contact_number": 111
+      }
+  },
+    {
+        "model": "programmes.teammember",
+        "pk": 24,
+        "fields": {
+            "email": "kerry@mediasuite.co.nz",
+            "image": "prp/teammembers/images/kerry.png",
+            "position": "Project Manager",
+            "date_joined": "2019-01-24 15:02:10.39076523",
+            "first_name": "Kerry",
+            "is_active": true,
+            "is_staff": true,
+            "is_superuser": false,
+            "last_login": "2019-01-24 15:02:32.16536123",
+            "last_name": "Gibbs",
+            "password": "pbkdf2_sha256$120000$e8pQF2uBL4fB$H4kkAvD1dCNU6qXF7GK6et/JFj7y5Fk8zdUTHvznU5I=",
+            "username": "Kerry",
+            "contact_number": 111
+        }
+    },
+    {
+        "model": "programmes.teammember",
+        "pk": 25,
+        "fields": {
+            "email": "al@mediasuite.co.nz",
+            "image": "prp/teammembers/images/al.png",
+            "position": "Project Manager",
+            "date_joined": "2019-01-24 15:02:10.39076523",
+            "first_name": "Al",
+            "is_active": true,
+            "is_staff": true,
+            "is_superuser": false,
+            "last_login": "2019-01-24 15:02:32.16536123",
+            "last_name": "Duncan",
+            "password": "pbkdf2_sha256$120000$e8pQF2uBL4fB$H4kkAvD1dCNU6qXF7GK6et/JFj7y5Fk8zdUTHvznU5I=",
+            "username": "Al",
+            "contact_number": 111
+        }
+    },
+    {
+        "model": "programmes.teammember",
+        "pk": 26,
+        "fields": {
+            "email": "ersin@mediasuite.co.nz",
+            "image": "prp/teammembers/images/ersin.png",
+            "position": "Full Stack Developer",
+            "date_joined": "2019-01-24 15:02:10.39076523",
+            "first_name": "Ersin",
+            "is_active": true,
+            "is_staff": true,
+            "is_superuser": false,
+            "last_login": "2019-01-24 15:02:32.16536123",
+            "last_name": "Buckley",
+            "password": "pbkdf2_sha256$120000$e8pQF2uBL4fB$H4kkAvD1dCNU6qXF7GK6et/JFj7y5Fk8zdUTHvznU5I=",
+            "username": "Ersin",
+            "contact_number": 111
+        }
+    },
+    {
+        "model": "programmes.teammember",
+        "pk": 27,
+        "fields": {
+            "email": "steve@mediasuite.co.nz",
+            "image": "prp/teammembers/images/steve.png",
+            "position": "Support and Testing Manager",
+            "date_joined": "2019-01-24 15:02:10.39076523",
+            "first_name": "Steve",
+            "is_active": true,
+            "is_staff": true,
+            "is_superuser": false,
+            "last_login": "2019-01-24 15:02:32.16536123",
+            "last_name": "Liew",
+            "password": "pbkdf2_sha256$120000$e8pQF2uBL4fB$H4kkAvD1dCNU6qXF7GK6et/JFj7y5Fk8zdUTHvznU5I=",
+            "username": "Steve",
+            "contact_number": 111
+        }
+    },
+      {
+          "model": "programmes.teammember",
+          "pk": 28,
+          "fields": {
+              "email": "johnathon@mediasuite.co.nz",
+              "image": "prp/teammembers/images/jonathon.png",
+              "position": "Full Stack Developer",
+              "date_joined": "2019-01-24 15:02:10.39076523",
+              "first_name": "Jonathon",
+              "is_active": true,
+              "is_staff": true,
+              "is_superuser": false,
+              "last_login": "2019-01-24 15:02:32.16536123",
+              "last_name": "Hollingsworth",
+              "password": "pbkdf2_sha256$120000$e8pQF2uBL4fB$H4kkAvD1dCNU6qXF7GK6et/JFj7y5Fk8zdUTHvznU5I=",
+              "username": "Jonathon",
+              "contact_number": 111
+          }
+      },
+  {
+      "model": "programmes.programme",
+      "pk": 21,
+      "fields": {
+          "name": "MediaSuite 2019 Strategy",
+          "description": "Build the right team to guide humans through technical adaptation",
+          "vision": "Contribute to building a better world by guiding human adaptation and transforming systemic problems through squillions of little changes",
+          "image": "prp/programmes/images/ms.png",
+          "start_date": "2019-01-16",
+          "end_date": "2020-01-01",
+          "slug": "MediaSuite_2019_Strategy",
+          "members": [21,22,23,24,25,26,27,28]
+      }
+  },
+  {
+      "model": "programmes.goal",
+      "pk": 21,
+      "fields": {
+          "programme": 21,
+          "name": "BUILDING THE RIGHT BUSINESS (A SUSTAINABLE ENTITY)",
+          "image": "prp/goals/images/business.jpg",
+          "description": "Revenue Target - 7.8 Mil turnover\nMargin increase from 28% to 38%\nDiversified Revenue By 2022 \n42% (3.28Mil) from products;\n16% (1.24Mil) contracted services\n42% (3.28 Mil) from services.\nSuccession plan for key persons\n Reward model for key persons exists",
+          "order": 1,
+          "problems": [
+              
+          ]
+      }
+  },
+  {
+      "model": "programmes.goal",
+      "pk": 22,
+      "fields": {
+          "programme": 21,
+          "name": "BUILD THE RIGHT REPUTATION (As the go to team)",
+          "image": "prp/goals/images/rep.jpeg",
+          "description": "75 referring relationships across central government, local government & organisations with recognised thought leadership\nOur Client Relationships are characterised by perception of Media Suite as partner:advisor rather than supplier:vendor.",
+          "order": 1,
+          "problems": [
+              
+          ]
+      }
+  },
+  {
+      "model": "programmes.goal",
+      "pk":23,
+      "fields": {
+          "programme": 21,
+          "name": "BUILD THE RIGHT BODY OF WORK",
+          "image": "prp/goals/images/work.png",
+          "description": "Client Services - we want to be working exclusively on projects that:\nrequire guiding humans through technical adaptation; or\ndeliver solutions or improvements that genuinely contribute to building a better world; or\nbuild our competencies; or\ndeepen our target relationships; or\nDeliver product opportunities\nCredible case Studies Exist: for all Strategically aligned projects.\n5 + Speaking/ Conference Engagements per year within Australasia.",
+          "order": 1,
+          "problems": [
+              
+          ]
+      }
+  },
+  {
+    "model": "programmes.goal",
+    "pk":24,
+    "fields": {
+        "programme": 21,
+        "name": "BUILD THE RIGHT PRODUCTS",
+        "image": "prp/goals/images/product.png",
+        "description": "MyWorksites will:\nBe the Nationally adopted Service;\nBe a self-funded division;\nReturn revenue to the MS Group.\nLocal Authority Suite will:\nRESC as the flagship product in the Suite;\nBe a self-funding division;\nBe funded for continuous development;\nReinforce target relationships.",
+        "order": 1,
+        "problems": [
+            
+        ]
+    }
+},
+  {
+    "model": "programmes.project",
+    "pk": 21,
+    "fields": {
+        "name": "Increase Profit Margin",
+        "description": "As MediaSuite has grown the overall profit margin of the company has significantly decreased as our cost base has grown faster than our revenue.  To be sustainable in the longer term we needs to be managed.",
+        "start_date": "2019-01-16",
+        "end_date": "2020-05-30",
+        "priority": "Critical",
+        "progress": 0.66,
+        "cost": 30000,
+        "image": "prp/projects/images/margin.jpeg",
+        "status": "Delayed",
+        "goals": [21]
+
+    }
+},
+{
+    "model": "programmes.project",
+    "pk": 22,
+    "fields": {
+        "name": "Diversify Revenue",
+        "description": "Growing our revenue sources so that we’re sustainable",
+        "start_date": "2018-11-20",
+        "end_date": "2019-05-30",
+        "priority": "High",
+        "progress": 0.5,
+        "cost": 30000,
+        "image": "prp/projects/images/diversity.jpeg",
+        "status": "In Progress",
+        "goals": [21]
+
+    }
+},
+{
+    "model": "programmes.project",
+    "pk": 23,
+    "fields": {
+        "name": "Increase Revenue",
+        "description": "By 2022 revenue in increased to 7.8 Mil",
+        "start_date": "2018-11-20",
+        "end_date": "2019-05-30",
+        "priority": "High",
+        "progress": 1,
+        "cost": 30000,
+        "image": "prp/projects/images/revenue.jpeg",
+        "status": "Complete",
+        "goals": [21]
+
+    }
+},
+{
+    "model": "programmes.project",
+    "pk": 24,
+    "fields": {
+        "name": "Improve Partner Experience",
+        "description": "We believe that partners who have had an excellent experience engaging with us will be more likely to work with us again and make the transition to a relationship characterised as one of partner:advisor (from vendor: client).",
+        "start_date": "2018-11-20",
+        "end_date": "2019-05-30",
+        "priority": "Moderate",
+        "progress": 0.3,
+        "cost": 30000,
+        "image": "prp/projects/images/happy.png",
+        "status": "In Progress",
+        "goals": [22]
+
+    }
+},
+{
+    "model": "programmes.project",
+    "pk": 25,
+    "fields": {
+        "name": "Strengthen Referring Relationships",
+        "description": "We want to attract, strengthen and retain meaningful partner relationships so that they become referring relationships. Growing our network of referring relationships will:\n•    Increase our sales pipeline for the services side of the business;\n•    Put us closer to strategically aligned problem-opportunities;\n•    Build our reputation in NZ (as the go-to-team for tackling the kind of problems that require guiding humans through technical adaptation);\n•    Reduce cost of sale.",
+        "start_date": "2018-11-20",
+        "end_date": "2019-05-30",
+        "priority": "Moderate",
+        "progress": 0.15,
+        "cost": 30000,
+        "image": "prp/projects/images/hand.jpeg",
+        "status": "Delayed",
+        "goals": [22]
+
+    }
+},
+{
+    "model": "programmes.project",
+    "pk": 26,
+    "fields": {
+        "name": "Grow Opportunity Exploration",
+        "description": "We want to grow our exploration activities in a considered and cohesive way to identify, define and assess new opportunities that might confer a competitive advantage.\nThis exploration needs to be conducted in a structured, targeted, and rigorous way to ensure it drives the intended results.",
+        "start_date": "2018-11-20",
+        "end_date": "2019-05-30",
+        "priority": "Low",
+        "progress": 0,
+        "cost": 30000,
+        "image": "prp/projects/images/explore.jpeg",
+        "status": "Not Started",
+        "goals": [22]
+
+    }
+},
+{
+    "model": "programmes.project",
+    "pk": 27,
+    "fields": {
+        "name": "Increase Product Revenue",
+        "description": "We have two significant project opportunities which we can execute on - RESC and myWorksites.\nby 2022 - both product suites account for 3.5 Million in sales\nDefine and execute product strategy for existing opportunities. ",
+        "start_date": "2019-01-16",
+        "end_date": "2020-05-30",
+        "priority": "Critical",
+        "progress": 0.66,
+        "cost": 30000,
+        "image": "prp/projects/images/ms.png",
+        "status": "Delayed",
+        "goals": [24]
+
+    }
+},
+{
+    "model": "programmes.project",
+    "pk": 28,
+    "fields": {
+        "name": "Improve Quality of Processes",
+        "description": "Our internal facing systems and processes need to be characterised by being fit for purpose, reputation enhancing and contribute to a positive human experience. As we grow, we are increasingly reliant on scalable and reliable operational systems. Certain processes are critical to helping us manage risks to our reputation and reducing the potential for financial harm. We want to improve the quality of our processes overall by adopting and implementing a suitable management system.",
+        "start_date": "2018-11-20",
+        "end_date": "2019-05-30",
+        "priority": "High",
+        "progress": 0.5,
+        "cost": 30000,
+        "image": "prp/projects/images/processes.jpg",
+        "status": "In Progress",
+        "goals": [21]
+
+    }
+},
+{
+    "model": "programmes.project",
+    "pk": 29,
+    "fields": {
+        "name": "Develop Backlog of Aligned Opportunities",
+        "description": "We want to improve resource utilisation by ensuring we have a refined and prioritised backlog of valuable work that is “ready to start” when resources become available. We are specifically contemplating that strategically aligned opportunities may not be perfectly aligned with our current tech stack or competencies and that should not prevent them from consideration.",
+        "start_date": "2018-11-20",
+        "end_date": "2019-05-30",
+        "priority": "High",
+        "progress": 1,
+        "cost": 30000,
+        "image": "prp/projects/images/pipeline.jpeg",
+        "status": "Complete",
+        "goals": [21]
+
+    }
+},
+{
+    "model": "programmes.project",
+    "pk": 30,
+    "fields": {
+        "name": "Improve Employee Experience",
+        "description": "We want to work in a consistent way to attract, retain and reward the right team. We want to foster an environment where a high performing team can thrive (one providing: psychological safety, collaboration, effective communication, team-work, flexibility and trust). We want to promote creativity, reduce negativity and remove impediments and unnecessary pain-points in the employee experience.",
+        "start_date": "2018-11-20",
+        "end_date": "2019-05-30",
+        "priority": "Moderate",
+        "progress": 0.3,
+        "cost": 30000,
+        "image": "prp/projects/images/employee.png",
+        "status": "In Progress",
+        "goals": [23]
+
+    }
+},
+{
+    "model": "programmes.project",
+    "pk": 19,
+    "fields": {
+        "name": "Grow Competencies",
+        "description": "We need to strengthen and extend existing capabilities and competencies, ensure we proactively identify competencies we will require in the future and reduce key-person risk across the business.\nBy growing our competencies we want to increase the resilience of the business and capture the competitive advantage of high-value skillsets.",
+        "start_date": "2018-11-20",
+        "end_date": "2019-05-30",
+        "priority": "Moderate",
+        "progress": 0.15,
+        "cost": 30000,
+        "image": "prp/projects/images/comp.jpg",
+        "status": "Delayed",
+        "goals": [23]
+
+    }
+},
+{
+    "model": "programmes.project",
+    "pk": 20,
+    "fields": {
+        "name": "Grow Leaders & Innovators",
+        "description": "We want to build a business for the long-term, where we performing meaningful and challenging work. We need to develop the leadership & innovation capabilities of individuals and expand leadership capacity within the business to meet those aspirations. We believe pursuing a mature innovation-culture will deliver those results but will require strong leaders to succeed.",
+        "start_date": "2018-11-20",
+        "end_date": "2019-05-30",
+        "priority": "Low",
+        "progress": 0,
+        "cost": 30000,
+        "image": "prp/projects/images/leader.jpg",
+        "status": "Not Started",
+        "goals": [23]
+
+    }
+},
+{
+    "model": "programmes.initiative",
+    "pk": 21,
+    "fields": {
+        "name": "Ensure all products / initiatives have clear budget and are tracked",
+        "description": "",
+        "start_date": "2018-11-28",
+        "end_date": "2019-01-01",
+        "progress": 0.33,
+        "adapter_id": 1,
+        "adapter_ref": "1",
+        "order": 1,
+        "status": "Blocked",
+        "risks": [],
+        "outputs":[],
+        "projects": [21]
+    }
+},
+{
+    "model": "programmes.initiative",
+    "pk": 22,
+    "fields": {
+        "name": "Values training",
+        "description": "",
+        "start_date": "2018-11-28",
+        "end_date": "2018-12-20",
+        "progress": 1,
+        "adapter_id": 1,
+        "adapter_ref": "1",
+        "order": 1,
+        "status": "Complete",
+        "risks": [],
+        "outputs":[],
+        "projects": [24]
+    }
+},
+{
+    "model": "programmes.initiative",
+    "pk":23,
+    "fields": {
+        "name": "Process for capturing process requirements and improvements",
+        "description": "",
+        "start_date": "2018-11-28",
+        "end_date": "2018-12-25",
+        "progress": 1,
+        "adapter_id": 1,
+        "adapter_ref": "1",
+        "order": 1,
+        "status": "Complete",
+        "risks": [],
+        "outputs":[],
+        "projects": [28]
+    }
+},
+{
+    "model": "programmes.initiative",
+    "pk": 24,
+    "fields": {
+        "name": "Performance and reward framework",
+        "description": "",
+        "start_date": "2018-11-28",
+        "end_date": "2018-12-30",
+        "progress": 0.45,
+        "adapter_id": 1,
+        "adapter_ref": "1",
+        "order": 1,
+        "status": "In Progress",
+        "risks": [],
+        "outputs":[],
+        "projects": [30]
+    }
+},
+{
+  "model": "programmes.initiative",
+  "pk": 25,
+  "fields": {
+      "name": "Develop more retainer model offerings",
+      "description": "",
+      "start_date": "2018-11-28",
+      "end_date": "2018-12-30",
+      "progress": 0.15,
+      "adapter_id": 1,
+      "adapter_ref": "1",
+      "order": 1,
+      "status": "In Progress",
+      "risks": [],
+      "outputs":[],
+      "projects": [22]
+  }
+},
+{
+    "model": "programmes.initiative",
+    "pk": 26,
+    "fields": {
+        "name": "Identify organisations with aligned opportunities",
+        "description": "",
+        "start_date": "2018-11-28",
+        "end_date": "2019-01-01",
+        "progress": 0.33,
+        "adapter_id": 1,
+        "adapter_ref": "1",
+        "order": 1,
+        "status": "Blocked",
+        "risks": [],
+        "outputs":[],
+        "projects": [25]
+    }
+},
+{
+    "model": "programmes.initiative",
+    "pk": 27,
+    "fields": {
+        "name": "MWS strategy and roadmap",
+        "description": "",
+        "start_date": "2018-11-28",
+        "end_date": "2018-12-20",
+        "progress": 0.5,
+        "adapter_id": 1,
+        "adapter_ref": "1",
+        "order": 1,
+        "status": "Overdue",
+        "risks": [],
+        "outputs":[],
+        "projects": [27]
+    }
+},
+{
+    "model": "programmes.initiative",
+    "pk": 28,
+    "fields": {
+        "name": "RESC strategy and roadmap",
+        "description": "",
+        "start_date": "2018-11-28",
+        "end_date": "2018-12-25",
+        "progress": 1,
+        "adapter_id": 1,
+        "adapter_ref": "1",
+        "order": 1,
+        "status": "Complete",
+        "risks": [],
+        "outputs":[],
+        "projects": [27]
+    }
+},
+{
+    "model": "programmes.initiative",
+    "pk": 29,
+    "fields": {
+        "name": "Study activity of planning staff and how we free up time",
+        "description": "",
+        "start_date": "2018-11-28",
+        "end_date": "2018-12-30",
+        "progress": 0.45,
+        "adapter_id": 1,
+        "adapter_ref": "1",
+        "order": 1,
+        "status": "In Progress",
+        "risks": [],
+        "outputs":[],
+        "projects": [29]
+    }
+},
+{
+  "model": "programmes.initiative",
+  "pk": 30,
+  "fields": {
+      "name": "Competency register and process",
+      "description": "",
+      "start_date": "2018-11-28",
+      "end_date": "2018-12-30",
+      "progress": 0.15,
+      "adapter_id": 1,
+      "adapter_ref": "1",
+      "order": 1,
+      "status": "In Progress",
+      "risks": [],
+      "outputs":[],
+      "projects": [19]
+  }
+},
+{
+    "model": "programmes.initiative",
+    "pk": 31,
+    "fields": {
+        "name": "Develop sales and services strategy",
+        "description": "",
+        "start_date": "2018-11-28",
+        "end_date": "2018-12-25",
+        "progress": 1,
+        "adapter_id": 1,
+        "adapter_ref": "1",
+        "order": 1,
+        "status": "Complete",
+        "risks": [],
+        "outputs":[],
+        "projects": [23]
+    }
+},
+{
+    "model": "programmes.initiative",
+    "pk": 32,
+    "fields": {
+        "name": "Fit for purpose R&D strategy",
+        "description": "",
+        "start_date": "2018-11-28",
+        "end_date": "2018-12-30",
+        "progress": 0.45,
+        "adapter_id": 1,
+        "adapter_ref": "1",
+        "order": 1,
+        "status": "In Progress",
+        "risks": [],
+        "outputs":[],
+        "projects": [26]
+    }
+},
+{
+  "model": "programmes.initiative",
+  "pk": 33,
+  "fields": {
+      "name": "Domain expertise register & process",
+      "description": "",
+      "start_date": "2018-11-28",
+      "end_date": "2018-12-30",
+      "progress": 0.15,
+      "adapter_id": 1,
+      "adapter_ref": "1",
+      "order": 1,
+      "status": "In Progress",
+      "risks": [],
+      "outputs":[],
+      "projects": [20]
+  }
+},
+  {
+      "model": "programmes.benefit",
+      "pk": 11,
+      "fields": {
+          "name": "Track Progress for an applicant and student through the student lifecycle",
+          "description": "Every student should have s complete and detailed journey map.",
+          "image": "prp/benefits/images/track.jpeg",
+          "value": "$12000",
+          "priority": "critical",
+          "goals": []
+      }
+  },
+  {
+      "model": "programmes.benefit",
+      "pk": 12,
+      "fields": {
+          "name": "Actionable and simple communications & status updates",
+          "description": "",
+          "image": "prp/benefits/images/update.jpg",
+          "value": "$2000",
+          "priority": "medium",
+          "goals": []
+      }
+  },
+  {
+      "model": "programmes.benefit",
+      "pk":23,
+      "fields": {
+          "name": "Standardise and simplify administration of Admission & Enrolment rules",
+          "description": "Students should have consistant admission services across all departments.",
+          "image": "prp/benefits/images/standard.jpg",
+          "value": "$1500",
+          "priority": "low",
+          "goals": []
+      }
+  },
+  {
+      "model": "programmes.benefit",
+      "pk": 14,
+      "fields": {
+          "name": "Use simplified processes and a modern workspace for student administration processing",
+          "description": "Improved systems for improved student services.",
+          "image": "prp/benefits/images/workspace.jpg",
+          "value": "$4500",
+          "priority": "high",
+          "goals": []
+      }
+  },
+  {
+    "model": "programmes.role",
+    "pk": 21,
+    "fields": {
+        "role": "Project Manager",
+        "team_members": [21],
+        "projects": [21]
+
+    }
+},
+{
+    "model": "programmes.role",
+    "pk": 22,
+    "fields": {
+        "role": "Project Manager",
+        "team_members": [23],
+        "projects": [22,23]
+
+    }
+},
+{
+  "model": "programmes.role",
+  "pk": 23,
+  "fields": {
+      "role": "Project Manager",
+      "team_members": [24],
+      "projects": [24]
+
+  }
+},
+{
+    "model": "programmes.role",
+    "pk": 24,
+    "fields": {
+        "role": "Project Manager",
+        "team_members": [25],
+        "projects": [25,27]
+
+    }
+},
+{
+    "model": "programmes.role",
+    "pk": 25,
+    "fields": {
+        "role": "Project Manager",
+        "team_members": [26],
+        "projects": [26]
+
+    }
+},
+{
+    "model": "programmes.role",
+    "pk": 26,
+    "fields": {
+        "role": "Project Manager",
+        "team_members": [27],
+        "projects": [28]
+
+    }
+},
+{
+  "model": "programmes.role",
+  "pk": 27,
+  "fields": {
+      "role": "Project Manager",
+      "team_members": [28],
+      "projects": [29]
+
+  }
+},
+{
+    "model": "programmes.role",
+    "pk": 28,
+    "fields": {
+        "role": "Project Manager",
+        "team_members": [22],
+        "projects": [30,19]
+
+    }
+}
+]

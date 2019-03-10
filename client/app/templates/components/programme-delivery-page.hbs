@@ -1,0 +1,32 @@
+<div  id="delivery page">
+  <div class="c-page-heading">Delivery Pipeline</div>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-6">
+        {{#each initiatives as |initiative|}}
+          {{programme-initiatives
+            name=initiative.name
+            barProgress=initiative.progress
+            status=initiative.status
+            setInitiative=(action "setInitiative")
+            hasSelectedInitiative=(action "hasSelectedInitiative")
+            initiative=initiative
+            slug=slug
+            isSelected=(eq selectedInitiative.id initiative.id)
+          }}
+        {{else}}
+          <div>No initiatives to display!</div>
+        {{/each}}
+      </div>
+      <div class="col-6">
+        {{#if hasSelectedInitiative}}
+          {{initiative-statistics
+            initiative=selectedInitiative
+            slug=slug
+          }}
+        {{/if}}
+      </div>
+    </div>
+  </div>
+</div>

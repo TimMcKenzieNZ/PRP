@@ -1,0 +1,16 @@
+.c-secondary-action {
+  display: inline-block;
+  vertical-align: middle;
+  border: none;
+  background-color: none;
+  color: $secondary-action--text;
+  font-size: 1.6rem;
+  font-weight: $weight--bold;
+  text-decoration: underline;
+  cursor: pointer;
+  transition: color 250ms ease;
+
+  &:hover {
+    color: $secondary-action--hover-text;
+  }
+}

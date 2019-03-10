@@ -1,0 +1,89 @@
+.c-dashboard-goals {
+  margin-bottom: $dashboard-component--spacing;
+}
+
+.c-dashboard-goals__content {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: stretch;
+  justify-content: center;
+}
+
+.c-dashboard-goals__box {
+  @extend .box-shadow;
+  border-radius: 20px;
+  background-color: $color--white;
+  padding:0 30px 10px 30px;
+  text-align: center;
+  margin: 2rem 1rem;
+  max-width: 330px;
+  cursor: pointer;
+
+  @include tablet-landscape-down {
+    width: calc(50% - 2rem);
+    max-width: inherit;
+  }
+
+  @include phone-only {
+    width: calc(100% - 2rem);
+    max-width: inherit;
+  }
+}
+
+.c-dashboard-goals__box--highlight {
+  @extend .c-dashboard-goals__box;
+  background-color: $primary--500;
+  color: $color--white;
+}
+
+.c-dashboard-goals__image {
+  width: 100px;
+  height: 100px;
+  position: relative;
+  top: -25px;
+  border-radius: 100%;
+  margin: auto;
+  background-size: cover;
+  background-position: center;
+}
+
+.c-dashboard-goals__name {
+  text-align: center;
+  font-size: 2.2rem;
+  margin-bottom: 10px;
+  margin-top: -15px;  
+}
+
+.c-dashboard-goals__description {
+  font-size: 1.6rem;
+  text-align: left;
+  color: $primary--200;
+}
+
+
+
+.c-goals {
+  margin-bottom: 10px;
+}
+
+.c-goal {
+  font-size: 1.6rem;
+  color: $primary--200;
+  display: inline-block;
+}
+
+.c-goal__image {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  vertical-align: middle;
+  margin-right: 10px;
+  background-size: cover;
+  background-position: center;
+  display: inline-block;
+}
+
+.c-goal__name {
+  height: 50px;
+  line-height: 50px;
+}

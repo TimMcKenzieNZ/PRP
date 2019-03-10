@@ -1,0 +1,34 @@
+
+<div class="c-list-full_item" id={{concat project.name ' statistics'}}>
+  <div class="c-list-full_item__heading">{{project.name}}</div>
+
+  {{#each project.goals as |goal|}}
+    <div class="c-goals">
+      <div class="c-goal__image" style="background-image:url('{{goal.image}}')"></div>
+        <div class="c-goal" id={{concat project.name " " goal.name}}>
+          Goal: <strong>{{goal.name}}</strong>
+        </div>
+    </div>
+  {{/each}}
+
+  <div class="c-list-full_item__description" id={{concat project.name " description"}}>{{project.description}}</div>
+
+  {{project-managers
+    roles=project.roles
+  }}
+
+  <hr class="c-list-full_item__separator">
+
+  <div class="c-list-full_item__sub-heading">Initiatives</div>
+  {{#each project.initiatives as |initiative|}}
+    {{project-initiative
+      name=initiative.name
+      barProgress=initiative.progress
+      status=initiative.status
+      initiative=initiative
+      slug=slug
+    }}
+  {{else}}
+    This project has no initiatives.
+  {{/each}}
+</div>

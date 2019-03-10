@@ -1,0 +1,22 @@
+[[source]]
+url = "https://pypi.python.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+Django = "~=2.1.0"
+djangorestframework = "~=3.9.0"
+djangorestframework-jsonapi = "~=2.6.0"
+django-cors-headers = "*"
+django-filter = "*"
+python-dotenv = "*"
+requests = "*"
+"psycopg2-binary" = "*"
+Pillow = "*"
+selenium = "*"
+chromedriver = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.6"

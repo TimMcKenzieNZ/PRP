@@ -1,0 +1,115 @@
+{{!-- Boilerplate styles sandbox - delete when no longer needed --}}
+
+{{! template-lint-disable no-inline-styles }}
+{{#content-container}}
+  <h1>Heading one</h1>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa iure omnis explicabo sit sapiente pariatur delectus ex consectetur optio, eos libero nihil consequuntur est, provident nisi quasi. Nostrum, voluptates quo?</p>
+  <h2>Heading two</h2>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa iure omnis explicabo sit sapiente pariatur delectus ex consectetur optio, eos libero nihil consequuntur est, provident nisi quasi. Nostrum, voluptates quo?</p>
+  <h3>Heading three</h3>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa iure omnis explicabo sit sapiente pariatur delectus ex consectetur optio, eos libero nihil consequuntur est, provident nisi quasi. Nostrum, voluptates quo?</p>
+  <h4>Heading four</h4>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa iure omnis explicabo sit sapiente pariatur delectus ex consectetur optio, eos libero nihil consequuntur est, provident nisi quasi. Nostrum, voluptates quo?</p>
+  <h5>Heading five</h5>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa iure omnis explicabo sit sapiente pariatur delectus ex consectetur optio, eos libero nihil consequuntur est, provident nisi quasi. Nostrum, voluptates quo?</p>
+  <h6>Heading six</h6>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa iure omnis explicabo sit sapiente pariatur delectus ex consectetur optio, eos libero nihil consequuntur est, provident nisi quasi. Nostrum, voluptates quo?</p>
+  <ul>
+    <li>Item one</li>
+    <li>Item two</li>
+    <li>Item three</li>
+  </ul>
+
+  <h1>Icons</h1>
+  <p>See <a href="https://fontawesome.com/icons?d=gallery&m=free">https://fontawesome.com/icons?d=gallery&m=free</a> for available icons.</p>
+  <p>Note: icons inherit the font-size of their parent container (so placing an icon in a h1 element will make it bigger than one used inside a p tag etc)</p>
+  <div style="font-size: 3rem;">
+    {{svg-icon name="bicycle"}}
+    {{svg-icon name="cat"}}
+    {{svg-icon name="check-circle"}}
+    {{svg-icon name="comment"}}
+  </div>
+
+  <h1>Responsive Grid system</h1>
+  <p>I"ve included the grid system used in Bootstrap 4. See <a href="https://getbootstrap.com/docs/4.1/layout/grid/">https://getbootstrap.com/docs/4.1/layout/grid/</a> for usage instructions.</p>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm">
+        <div style="background-color: #efefef;padding: 10px;">Column One</div>
+      </div>
+      <div class="col-sm">
+        <div style="background-color: #efefef;padding: 10px;">Column Two</div>
+      </div>
+      <div class="col-sm">
+        <div style="background-color: #efefef;padding: 10px;">Column Three</div>
+      </div>
+      <div class="col-sm">
+        <div style="background-color: #efefef;padding: 10px;">Column Four</div>
+      </div>
+    </div>
+  </div>
+
+  <h1>Actions</h1>
+  {{#primary-action}}Primary action{{/primary-action}}
+  {{#primary-action}}
+    {{svg-icon name="cat"}} With icon
+  {{/primary-action}}
+  {{#secondary-action}}Secondary action{{/secondary-action}}
+
+  <h1>Form Inputs</h1>
+  {{#field-container}}
+    {{#field-label}}Label{{/field-label}}
+    {{text-input}}
+  {{/field-container}}
+  {{#field-container}}
+    {{#field-label}}Label{{/field-label}}
+    {{select-input}}
+  {{/field-container}}
+  {{#field-container}}
+    {{#field-label}}Disabled field{{/field-label}}
+    {{text-input disabled=true}}
+  {{/field-container}}
+  {{#field-container}}
+    {{#field-label}}Disabled field{{/field-label}}
+    {{select-input disabled=true}}
+  {{/field-container}}
+  {{#field-container}}
+    {{#field-label}}Radio inputs{{/field-label}}
+    {{checkable-field
+      type="radio"
+      name="groupName"
+      optionLabel="Option one"
+    }}
+    {{checkable-field
+      type="radio"
+      name="groupName"
+      optionLabel="Option two"
+    }}
+    {{checkable-field
+      type="radio"
+      name="groupName"
+      optionLabel="Option three"
+    }}
+  {{/field-container}}
+  {{#field-container}}
+    {{#field-label}}Checkbox inputs{{/field-label}}
+    {{checkable-field
+      type="checkbox"
+      name="optionOne"
+      optionLabel="Option one"
+    }}
+    {{checkable-field
+      type="checkbox"
+      name="optinoTwo"
+      optionLabel="Option two"
+    }}
+    {{checkable-field
+      type="checkbox"
+      name="optionThree"
+      optionLabel="Option three"
+    }}
+  {{/field-container}}
+
+{{/content-container}}
+
+{{! template-lint-enable no-inline-styles }}

@@ -1,0 +1,23 @@
+{{#if
+  (and hasProjectManagerPromise.isSettled hasProjectManagerPromise.content)
+}}
+  <div class="c_roles">
+    {{#each roles as |role|}}
+      {{#if (eq role.role ROLE_NAMES.PROJECT_MANAGER)}}
+        {{#each role.teamMembers as |member|}}
+          <div class="c-status-update" id={{member.firstName}}>
+            <object class="c-status-update__image" data={{member.image}} type="image/png">
+              <img src={{imageLink}} class="c-status-update__image" alt="default">
+            </object>
+            <span class="c-status-update__text">Project managed by <a class="c-status-update__email" href="mailto:{{member.email}}">{{member.firstName}} {{member.lastName}}</a></span>
+          </div>
+        {{/each}}
+      {{/if}}
+    {{/each}}
+  </div>
+{{else}}
+  <div class="c-status-update">
+    <img src={{imageLink}} class="c-status-update__image" alt="default">
+    No Project Manager assigned
+  </div>
+{{/if}}

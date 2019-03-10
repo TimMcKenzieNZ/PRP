@@ -1,0 +1,15 @@
+{{#if display}}
+  {{#each updates as |update|}}
+    <div class="c-status-update">
+      <object
+        class="c-status-update__image"
+        data={{update.author.image}}
+        type="image/png"
+      >
+        <img src={{imageLink}} class="c-status-update__image" alt="default">
+      </object>
+
+      {{update-display update=update}}
+    </div>
+  {{/each}}
+{{/if}}

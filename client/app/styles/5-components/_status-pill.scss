@@ -1,0 +1,47 @@
+.c-status-pill {
+  text-align: center;
+  color: $color--white;
+  font-size: 13px;
+  line-height: 20px;
+  font-weight: bold;
+  border-radius: 10px;
+  height: 20px;
+  width: 85px;
+  display: inline-block;
+}
+
+.c-impact-pill {
+  @extend .c-status-pill;
+  margin: 0 10px;
+}
+
+.c-impact-pills__container {
+  text-align: center;
+}
+
+.c-delivery-time__container {
+  display: table;
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+}
+
+.c-delivery-time {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.c-delivery-time__pill {
+  text-align: center;
+  font-size: 13px;
+  line-height: 30px;
+  font-weight: bold;
+  border-radius: 14px;
+  height: 30px;
+  padding: 0 8px;
+  display: inline-block;
+  border: 1px solid $primary--300;
+  color: $neutral--800;
+  background-color: $color--white;
+}

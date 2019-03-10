@@ -1,0 +1,19 @@
+.c-checkable-field {
+  display: flex;
+  align-content: flex-start;
+  margin: 10px 0;
+}
+
+.c-checkable-field__input {
+  margin-right: 10px;
+}
+
+.c-checkable-field__label {
+  flex-grow: 1;
+  font-size: 1.6rem;
+  line-height: 1;
+}
+
+.c-checkable-field__label--disabled {
+  color: $checkable-field--disabled-text;
+}

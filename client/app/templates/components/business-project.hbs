@@ -1,0 +1,31 @@
+<div id="priority page">
+  <div class="c-page-heading">Programme Priorities</div>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-6">
+        {{#each projects as |project|}}
+          {{project-listing
+            name=project.name
+            barProgress=project.progress
+            status=project.status
+            setProject=(action "setProject")
+            hasSelectedProject=(action "hasSelectedProject")
+            project=project
+            image=project.image
+            isSelected=(eq selectedProject.id project.id)
+          }}
+        {{else}}
+          <h1>No projects to display!</h1>
+        {{/each}}
+      </div>
+      <div class="col-6">
+        {{#if hasSelectedProject}}
+          {{project-statistics
+            project=selectedProject
+            slug=slug
+          }}
+        {{/if}}
+      </div>
+    </div>
+  </div>
+</div>

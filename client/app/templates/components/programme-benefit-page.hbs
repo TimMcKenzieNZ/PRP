@@ -1,0 +1,30 @@
+<div id="benefit page">
+  <div class="c-page-heading">Project alignments</div>
+
+  <div class="container-fluid">
+    <div class="row">
+      {{#each goals as |goal|}}
+        <div class="col-4">
+          {{programme-delivery-goal
+            goal=goal
+            setGoal=(action "setGoal")
+            goalIsSelected=(has selectedGoalIds goal.id)
+          }}
+        </div>
+      {{/each}}
+    </div>
+  </div>
+
+  <div class="container-fluid">
+    <div class="row">
+      {{#each projects as |project|}}
+        <div class="col-3">
+          {{programme-benefit
+            project=project
+            highlight=(has selectedBenefitIds project.id )
+          }}
+        </div>
+      {{/each}}
+    </div>
+  </div>
+</div>

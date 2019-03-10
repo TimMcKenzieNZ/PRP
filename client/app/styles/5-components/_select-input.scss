@@ -1,0 +1,7 @@
+.c-select-input {
+  @include form-input;
+}
+
+.c-select-input--disabled {
+  @include disabled-form-input;
+}

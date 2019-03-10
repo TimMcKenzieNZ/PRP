@@ -1,0 +1,22 @@
+<p class="card-text">
+  {{risk.description}}
+
+
+  <h6>Mitigations:</h6>
+  <ul>
+    {{#each risk.riskMitigations as |mitigation|}}
+      <li>
+        <strong>
+          {{mitigation.name}}
+        </strong>
+        <br>
+        <em>
+          {{mitigation.description}}
+        </em>
+      </li>
+    {{/each}}
+  </ul>
+
+</p>
+
+

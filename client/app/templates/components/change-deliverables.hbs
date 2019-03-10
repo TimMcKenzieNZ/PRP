@@ -1,0 +1,15 @@
+<div id="change page">
+  <div class="c-page-heading">Delivery ETA</div>
+
+  <div class="container-fluid">
+    {{#each deliverables as |deliverable|}}
+      {{change-deliverables-deliverable
+        deliverable=deliverable
+        hasSelectedDeliverable=(has selectedDeliverableIds deliverable.id)
+        setDeliverable=(action "setDeliverable" deliverable)
+      }}
+    {{else}}
+      <p>No deliverables to display</p>
+    {{/each}}
+  </div>
+</div>

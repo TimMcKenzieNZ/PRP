@@ -1,0 +1,10 @@
+<h2 class="c-dashboard-heading">Goals</h2>
+<div class="c-dashboard-goals__content">
+  {{#each goals as |goal|}}
+    <div class="c-dashboard-goals__box">
+      <div class="c-dashboard-goals__image" style="background-image:url('{{goal.image}}')"></div>
+      <div class="c-dashboard-goals__name">{{goal.name}}</div>
+      <p class="c-dashboard-goals__description">{{goal.description}}</p>
+    </div>
+  {{/each}}
+</div>

@@ -1,0 +1,41 @@
+<div class="c-list-full_item" id={{concat initiative.name ' statistics'}}>
+  <div class="c-list-full_item__heading">{{initiative.name}}</div>
+
+  <div class="c-list-full_item__description">{{initiative.description}}</div>
+
+  <hr class="c-list-full_item__separator">
+
+  <div class="c-list-full_item__sub-heading">Deliverables</div>
+  {{#each initiative.deliverables as |deliverable|}}
+    {{initiative-deliverable
+      deliverable=deliverable
+      slug=slug
+    }}
+  {{else}}
+    This initiative has no deliverables.
+  {{/each}}
+
+  {{!-- Risks todo
+  <div class="c-list-full_item__sub-heading">Risks</div>
+  {{#each initiative.risks as |risk|}}
+    {{initiative-risk
+      setRisk=(action "setRisk")
+      hasSelectedRisk=(has selectedRiskIds risk.id)
+      risk=risk
+    }}
+  {{else}}
+    This initiative has no risks.
+  {{/each}}
+  --}}
+
+  {{!-- Milestones todo
+  <div class="c-list-full_item__sub-heading">Milestones</div>
+  {{#each initiative.deliverables as |deliverable|}}
+    {{#if (eq deliverable.status "Complete")}}
+      {{fa-icon 'star'}} {{deliverable.name}}
+    {{/if}}
+  {{else}}
+    This initiative has no risks.
+  {{/each}}
+  --}}
+</div>

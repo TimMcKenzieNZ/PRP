@@ -1,0 +1,326 @@
+version: 2
+
+# Define the different types of jobs that can be run, e.g. tests, build, and deploy
+jobs:
+  checkout_code:
+    docker:
+      # Define the circleci image to pull from their repo that matches the version of node our project needs
+      - image: circleci/node:6.14.4-jessie
+    working_directory: ~/programme-reporting-prototype
+    steps:
+      - checkout
+      - save_cache:
+          key: repo1-{{ .Environment.CIRCLE_SHA1 }} # Naming the cache for latter reference
+          paths:
+            - ~/programme-reporting-prototype
+
+  server_dependencies:
+    docker:
+      - image: circleci/python:3.6-stretch
+        environment:
+          # This tells pipenv to create the virtualenv in the project dir rather than in ~/.local/...
+          PIPENV_VENV_IN_PROJECT: 1
+    working_directory: ~/programme-reporting-prototype
+    steps:
+      - restore_cache: # loading cache we defined in the checkout_code job
+          key: repo1-{{ .Environment.CIRCLE_SHA1 }}
+      - restore_cache:
+          key: venv1-3.6-stretch-{{ .Branch }}-{{ checksum "Pipfile.lock" }}
+      - run:
+          name: Installing server dependencies
+
+          # python3 & pip3 provided by the image
+          command: |
+            pip3 install --disable-pip-version-check pipenv
+            pipenv install
+      - save_cache:
+          # dependencies were correctly downloaded and saving them with a unique id given by checksum
+          key: venv1-3.6-stretch-{{ .Branch }}-{{ checksum "Pipfile.lock" }}
+          paths:
+            - ~/programme-reporting-prototype/.venv
+
+
+  server_test:
+    docker:
+      - image: circleci/python:3.6-stretch
+        environment:
+          SECRET_KEY: x
+          DEBUG: true
+          PG_NAME: PG_database
+          PG_USER: postgres
+          PG_PORT: 5432
+          PG_PASS: password
+          PG_HOST: localhost
+          PG_DB: PG_database
+          APP_DOMAIN: localhost
+      - image: postgres:9.5-alpine
+        environment:
+          POSTGRES_DB: PG_test
+          POSTGRES_PASSWORD: password
+    working_directory: ~/programme-reporting-prototype
+    steps:
+      - restore_cache:
+          key: repo1-{{ .Environment.CIRCLE_SHA1 }}
+      - run:
+          name: Install dependencies
+          command: |
+            sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt/ stretch-pgdg main" >> /etc/apt/sources.list'
+            wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
+            sudo apt-get update
+            sudo apt-get install -y --no-install-recommends postgresql-client-9.5
+      - restore_cache:
+          key: venv1-3.6-stretch-{{ .Branch }}-{{ checksum "Pipfile.lock" }}
+      - run:
+          name: Wait for database
+          command: |
+            dockerize -wait tcp://localhost:5432 -timeout 1m # Checking that the postgres database was created and is running
+      - run:
+          name: Run tests
+          command: |
+            pipenv run server/manage.py test
+        
+
+  client_dependencies:
+    docker:
+      - image: circleci/node:6.14.4-jessie
+    working_directory: ~/programme-reporting-prototype/client
+    steps:
+      - restore_cache:
+          key: repo1-{{ .Environment.CIRCLE_SHA1 }}
+      - restore_cache:
+          key: client2-{{ .Branch }}-{{ checksum "package.json" }} # We are not using bower.json
+      - run:
+          name: Install dependencies
+          command: |
+            npm install
+      - save_cache:
+          key: client2-{{ .Branch }}-{{ checksum "package.json" }}
+          paths:
+            - ~/programme-reporting-prototype/client/node_modules
+
+  client_build:
+    docker:
+      - image: circleci/node:6.14.4-jessie
+    working_directory: ~/programme-reporting-prototype/client
+    steps:
+      - restore_cache:
+          key: repo1-{{ .Environment.CIRCLE_SHA1 }}
+      - restore_cache:
+          key: client2-{{ .Branch }}-{{ checksum "package.json" }}
+      - run:
+          name: Build ember app 
+          command: npm run build:prod
+      - save_cache:
+          key: dist1-{{ .Branch }}-{{ epoch }}
+          paths:
+            - ~/programme-reporting-prototype/client/dist # cache into the dist dir
+
+
+  client_test:
+    docker:
+      - image: circleci/node:6.14.4-jessie
+    working_directory: ~/programme-reporting-prototype/client
+    steps:
+      - restore_cache:
+          key: repo1-{{ .Environment.CIRCLE_SHA1 }}
+      - restore_cache:
+          key: client2-{{ .Branch }}-{{ checksum "package.json" }}
+      - run:
+          name: Run tests
+          command: npm run lint
+
+  selenium_test:
+    docker:
+      - image: circleci/python:3.6-stretch-browsers # the browsers version allows use of web drivers like chromedriver
+        environment:
+          SECRET_KEY: x
+          DEBUG: true
+          PG_NAME: PG_database
+          PG_USER: postgres
+          PG_PORT: 5432
+          PG_PASS: password
+          PG_HOST: localhost
+          PG_DB: test_db
+          APP_DOMAIN: localhost
+          SERVER_URL: http://localhost:4200
+      - image: postgres:9.5-alpine
+        environment:
+          POSTGRES_DB: test_db
+          POSTGRES_PASSWORD: password
+    working_directory: ~/programme-reporting-prototype
+    steps:
+      - restore_cache:
+          key: repo1-{{ .Environment.CIRCLE_SHA1 }}
+      - restore_cache:
+          key: venv1-3.6-stretch-{{ .Branch }}-{{ checksum "Pipfile.lock" }}
+      - restore_cache:
+          key: dist1-{{ .Branch }}
+      - run:
+          name: Wait for database
+          command: |
+            dockerize -wait tcp://localhost:5432 -timeout 1m
+      - run:
+          name: Get Node dependencies
+          command: |
+            curl -sL https://deb.nodesource.com/setup_6.x | sudo bash -
+            sudo apt-get install -y nodejs
+            cd client
+            npm install
+      - run:
+          name: Init DB
+          command: |
+            sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt/ stretch-pgdg main" >> /etc/apt/sources.list'
+            wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
+            sudo apt-get update
+            sudo apt-get install -y --no-install-recommends postgresql-client-9.5
+            # reset db
+            pipenv run server/manage.py database_create_or_reset_db
+            pipenv run server/manage.py makemigrations
+            pipenv run server/manage.py migrate
+            pipenv run server/manage.py create_roles
+            pipenv run server/manage.py loaddata risk_category.json
+            pipenv run server/manage.py loaddata student_first.json
+            pipenv run server/manage.py loaddata demo_data.json
+      - run:
+          name: Start server
+          command: |
+            pipenv run server/manage.py runserver
+          background: true
+      - run:
+          name: serve ember
+          command: |
+            cd client
+            ./node_modules/.bin/ember s
+          background: true
+      - run:
+          name: Run tests
+          command: |
+            pipenv run python -m unittest selenium_tests/test_programmes.py
+
+  build:
+    docker:
+      - image: docker:17.11.0-ce
+    working_directory: /home/circleci/programme-reporting-prototype
+    steps:
+      - restore_cache:
+          key: repo1-{{ .Environment.CIRCLE_SHA1 }}
+      - setup_remote_docker # dockers within dockers...
+      - restore_cache:
+          key: dist1-{{ .Branch }}
+      - restore_cache:
+          key: docker1-{{ .Branch }}
+      - run:
+          name: Load Docker image layer cache
+          command: docker load -i ~/cache/image.tar || true
+      - run:
+          name: Build Docker images
+          command: |
+            docker build --cache-from=programme-reporting-prototype -t programme-reporting-prototype .
+      - run:
+          name: Save docker image layer cache
+          command: |
+            mkdir -p ~/cache
+            docker save -o ~/cache/image.tar programme-reporting-prototype
+      - save_cache:
+          key: docker1-{{ .Branch }}-{{ epoch }}
+          paths:
+            - ~/cache/image.tar
+
+
+  deploy:
+    docker:
+      - image: docker:18.06.1-ce
+    working_directory: /home/circleci/programme-reporting-prototype
+    steps:
+      - checkout
+      - setup_remote_docker
+      - restore_cache:
+          key: repo1-{{ .Environment.CIRCLE_SHA1 }}
+      - restore_cache:
+          key: docker1-{{ .Branch }}
+      - run:
+          name: Load Docker image layer cache
+          command: docker load -i ~/cache/image.tar
+      - run:
+          name: Install dependencies
+          command: |
+            apk update
+            apk add --no-cache bash curl jq py-pip=10.0.1-r0
+            # Installing the amazon web service cli 
+            pip --disable-pip-version-check install awscli==1.16.24
+      - run:
+          name: Push Docker images
+          command: |
+            login="$(aws ecr get-login --no-include-email --region $AWS_DEFAULT_REGION)"
+            ${login}
+            # ECR_ENDPOINT=123456789012.dkr.ecr.ap-southeast-2.amazonaws.com
+            docker tag programme-reporting-prototype:latest "$ECR_ENDPOINT/$ECR_REPOSITORY:$CIRCLE_BUILD_NUM"
+            docker push "$ECR_ENDPOINT/$ECR_REPOSITORY:$CIRCLE_BUILD_NUM"
+      - deploy:
+          name: Deploy to Elastic Container Service
+          command: deploy/deploy.sh
+      - deploy:
+          name: Wait for ECS services
+          command: | 
+            if [ "$CIRCLE_BRANCH" == "master" ]; then
+              environment="uat"
+              # We do not currently have either a release nor a hotfix branch, probably worth keeping in the code for latter
+            fi
+            service="${environment}-programme-reporting-prototype-service"
+            aws ecs wait services-stable --cluster "$environment" --services "$service"
+      - deploy:
+          name: Purge Cloudflare's cache
+          command: |
+            # https://api.cloudflare.com/#zone-purge-all-files
+            curl -X DELETE "https://api.cloudflare.com/client/v4/zones/$CLOUDFLARE_ZONE_ID/purge_cache" \
+              -H "X-Auth-Email: $CLOUDFLARE_AUTH_EMAIL" \
+              -H "X-Auth-Key: $CLOUDFLARE_AUTH_KEY" \
+              -H "Content-Type: application/json" \
+              --data '{"purge_everything":true}'
+            
+
+
+# define the dependencies for the jobs that can be run (i.e to deploy we need to build first)
+workflows:
+  version: 2
+  build_deploy:
+    jobs:
+      - checkout_code
+
+      - server_dependencies:
+          requires:
+            - checkout_code
+      - server_test:
+          requires:
+            - server_dependencies
+      - client_dependencies:
+          requires:
+            - checkout_code
+      - client_build:
+          requires:
+            - client_dependencies
+      - client_test:
+          requires:
+            - client_dependencies
+      - selenium_test:
+          requires:
+            - client_dependencies
+            - server_dependencies
+      - build:
+          requires:
+            - client_build
+            - client_test
+            - server_test
+          filters:
+            branches:
+              only:
+                - develop
+                - master
+                # It may be useful to add hotfix, feature, and release branches when they become availaible
+      - deploy:
+          requires:
+            - build
+          filters:
+            branches:
+              only:
+                - master # Only deploy IF its the master branch

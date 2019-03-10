@@ -1,0 +1,13 @@
+{{app-nav-default}}
+
+{{#content-container}}
+  <div id="main-content" class="c-app-nav__content">
+    <ul>
+      {{#each model.programmes as |programme|}}
+        <li>{{#link-to "programme.dashboard" programme.slug}}{{programme.name}}{{/link-to}}</li>
+      {{else}}
+        <li>None set</li>
+      {{/each}}
+    </ul>
+  </div>
+{{/content-container}}

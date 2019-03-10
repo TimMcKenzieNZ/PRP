@@ -1,0 +1,12 @@
+.l-content-container {
+  @include container;
+
+}
+
+/**
+ * @TODO Added to get the page content to expand to full width.
+ *       There's likely a better way.
+ */
+.l-content-page {
+  flex-grow: 1;
+}

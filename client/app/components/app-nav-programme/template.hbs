@@ -1,0 +1,13 @@
+<div class="c-app-nav__content">
+  {{#link-to "application" class="c-app-nav__logo" id="PRP"}}PRP{{/link-to}}
+  <div class="c-app-nav__programme">
+    {{#link-to "programme.dashboard" programme.slug class="c-app-nav__programme"}}{{programme.name}}{{/link-to}}
+  </div>
+  <div class="c-app-nav__perspective-container">
+    {{#each perspectives as |perspective|}}
+      {{#link-to perspective.link class="c-app-nav__perspective" id=perspective.id}}
+        <svg class="c-icon__svg"><use xlink:href="/assets/icons/icons.svg#icon-{{perspective.icon}}"></use></svg>
+      {{/link-to}}
+    {{/each}}
+  </div>
+</div>

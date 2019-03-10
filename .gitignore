@@ -1,0 +1,13 @@
+__pycache__/
+**.pyc
+.idea/
+**.DS_Store
+.vscode.pytest_cache
+.pytest_cache
+.vscode
+/server/db.sqlite3
+.env
+/client/node_modules
+docker-compose.yml
+.env-docker-example
+#/server/media/prp

@@ -1,0 +1,15 @@
+Description: >
+  This template contains the ECR repositories for prp.
+  The repositories are used for images for all environments.
+Resources:
+
+  Repository:
+    Type: AWS::ECR::Repository
+    Properties:
+      RepositoryName: programme-reporting-prototype
+
+Outputs:
+  # We export the stack we created so others can use
+  Arn:
+    Description: The ARN for the resource consents repository
+    Value: !GetAtt Repository.Arn

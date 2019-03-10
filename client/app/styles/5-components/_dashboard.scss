@@ -1,0 +1,113 @@
+$dashboard-vision--height: 250px;
+$dashboard-component--spacing: 50px;
+
+.c-dashboard-heading {
+  @extend .c-page-heading;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.c-dashboard-heading--no-btm-margin {
+  @extend .c-dashboard-heading;
+  margin-bottom: 0px;
+}
+
+.c-dashboard-vision {
+  background-color: $primary--500;
+  background-image:url("/assets/img/vision-overlay.png");
+  background-position: center bottom;
+  background-size: 3220px auto;
+  margin-left: -$container--gutter * 2;
+  margin-right: -$container--gutter * 2;
+  margin-bottom: -20px;
+}
+
+.c-dashboard-vision__container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 30px 80px;
+  max-width: 900px;
+  margin: auto;
+
+  @include phone-only {
+    display: block;
+    padding: 10px 30px 110px;
+  }
+}
+
+.c-dashboard-vision__image {
+  color: $color--white;
+  text-align: center;
+}
+
+.c-dashboard-vision__text {
+  font-size: 1.8rem;
+  color: $color--white;
+  padding: 0 20px;
+}
+
+.c-dashboard-perspectives__content {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: stretch;
+  justify-content: center;
+}
+
+.c-dashboard-perspectives__box {
+	@extend .box-shadow;
+  border-radius: 20px;
+	background-color: $color--white;
+  margin: 20px auto;
+  padding-left: 10px;
+  padding-right: 10px;
+  text-align: center;
+  margin: 2rem 1rem;
+  width: calc(25% - 2rem);
+  text-decoration: none;
+
+  @include tablet-landscape-down {
+    width: calc(50% - 2rem);
+  }
+
+  @include phone-only {
+    width: calc(100% - 2rem);
+  }
+}
+
+.c-dashboard-perspectives {
+  margin-bottom: $dashboard-component--spacing;
+}
+
+.c-dashboard-perspectives__image {
+  width: 100px;
+  height: 100px;
+  position: relative;
+  top: -20px;
+  border-radius: 50%;
+  background-color: $primary--500;
+  color: $color--white;
+  font-size: 50px;
+  line-height: 100px;
+  display: inline-block;
+
+  svg{
+    fill: #fff;
+    width: 60px;
+    height: 60px;
+    vertical-align: text-top;
+    text-align: center;
+  }
+}
+
+.c-dashboard-perspectives__name {
+  text-align: center;
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+  margin-top: -15px;
+}
+
+
+.c-dashboard-timeline {
+  margin-bottom: $dashboard-component--spacing;
+}

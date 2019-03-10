@@ -1,0 +1,62 @@
+{{#if deliverableNotComplete}}
+  <div class="row">
+    <div class="col-2">
+      <div class="c-delivery-time__container">
+        <div class="c-delivery-time">
+          <div class="c-delivery-time__pill">{{weeksFromCurrent}}</div>
+        </div>
+      </div>
+    </div>
+    <div class="col-10">
+      <div {{action "setDeliverable"}} role="button">
+        <div class="c-list-item">
+          <div class="c-list-item__name" id={{deliverable.name}}>
+            <strong>{{deliverable.name}}</strong>
+          </div>
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-7">
+                {{ember-progress-bar
+                  progress=1
+                  setProgress=deliverable.progress
+                  options=(hash
+                    trailWidth=10
+                    strokeWidth=8
+                    color=BLACK
+                    trailColor=trailColor
+                    from=from
+                    to=to
+                    step=step
+                    svgStyle=svgStyle
+                  )
+                }}
+              </div>
+              <div class="col-5 c-impact-pills__container">
+                {{impact-pill text="Team" impact=deliverable.teamImpact}}
+                {{impact-pill text="Sponsor" impact=deliverable.sponsorImpact}}
+                {{impact-pill text="PM" impact=deliverable.pmImpact}}
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                {{change-deliverables-status
+                  hasSelectedDeliverable=hasSelectedDeliverable
+                  deliverable=deliverable
+                }}
+                {{#if hasUpdates}}
+                  <div class="c-status-update__link">
+                    {{#if hasSelectedDeliverable}}
+                      <a id="Hide">Hide comments</a>
+                    {{else}}
+                      <a id={{updateCountText}}>{{updateCountText}}</a>
+                    {{/if}}
+                  </div>
+                {{/if}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{{/if}}

@@ -1,0 +1,22 @@
+.c-primary-action {
+  display: inline-block;
+  vertical-align: middle;
+  padding: 10px 15px;
+  border-radius: 3px;
+  border: none;
+  background-color: $primary-action--bg;
+  color: $primary-action--text;
+  font-size: 1.6rem;
+  font-weight: $weight--bold;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 250ms ease;
+
+  &:hover {
+    background-color: $primary-action--hover-bg;
+  }
+
+  .c-icon {
+    margin-right: 5px;
+  }
+}

@@ -1,0 +1,45 @@
+/**
+* Default font family, available weights etc.
+*/
+
+$font--primary: 'Source Sans Pro', sans-serif;
+
+$weight--light: 300;
+$weight--regular: 400;
+$weight--bold: 700;
+
+$default--font-family: $font--primary;
+$default--font-size: 1.4rem;
+$default--line-height: 1.4;
+$default--weight: $weight--regular;
+$default--text-color: $color--body-text;
+
+
+/**
+* Body text
+*/
+
+$body--font: $default--font-family;
+$body--font-size: $default--font-size;
+$body--weight: $default--weight;
+$body--line-height: $default--line-height;
+
+
+/**
+* Headings
+*/
+
+$h1--font-size: 3.4rem;
+$h1--mobile-font-size: 3rem;
+$h2--font-size: 3rem;
+$h2--mobile-font-size: 2.6rem;
+$h3--font-size: 2.6rem;
+$h3--mobile-font-size: 2.2rem;
+$h4--font-size: 2.2rem;
+$h4--mobile-font-size: 1.8rem;
+$h5--font-size: 1.8rem;
+$h5--mobile-font-size: 1.6rem;
+$h6--font-size: 1.6rem;
+$h6--mobile-font-size: 1.4rem;
+
+

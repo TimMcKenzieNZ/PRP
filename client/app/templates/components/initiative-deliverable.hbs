@@ -1,0 +1,20 @@
+<div role="button" class="c-list-full_item__container" {{action "loadDeliverable" deliverable.id}}>
+  <div class="c-list-full_item_name--secondary" id={{deliverable.name}}>{{deliverable.name}}</div>
+  <div class="c-progress-bar--secondary">
+    {{ember-progress-bar
+      progress=1
+      setProgress=deliverable.progress
+      options=(hash
+        trailWidth=10
+        strokeWidth=8
+        color=BLACK
+        trailColor=trailColor
+        from=from
+        to=to
+        step=step
+        svgStyle=svgStyle
+      )
+    }}
+  </div>
+    {{status-pill status=deliverable.status}}
+</div>
